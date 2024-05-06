@@ -4,9 +4,11 @@ from pir_autotest.generators.paddle_func_body_generator import (
 
 class PaddleUnittestGenerator:
 
-  def __init__(self, unittest_class_name, func):
+  def __init__(self, unittest_class_name, func, body_generator = None):
     self.unittest_class_name = unittest_class_name
-    self.body_generator = PaddleFuncBodyGenerator(func)
+    self.body_generator = body_generator
+    if self.body_generator is None:
+      self.body_generator = PaddleFuncBodyGenerator(func)
 
   def Generate(self, input_tensors):
     input_tensors, body_code_stmts = self.body_generator.Generate(input_tensors)

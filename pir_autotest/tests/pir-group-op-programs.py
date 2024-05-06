@@ -1,10 +1,4 @@
-from pir_autotest.traits.args_trait import ArgsTrait
-from pir_autotest.traits.type_trait import TypeTrait
-from pir_autotest.traits.attr_trait import AttrTrait
-from pir_autotest.traits.op_trait import OpTrait
-from pir_autotest.generators.group_op_unittest_generator import GroupOpUnittestGenerator
-
-class Program(ArgsTrait, OpTrait, TypeTrait, AttrTrait):
+class PirProgram_0:
 
   def __init__(self):
 
@@ -52,7 +46,7 @@ class Program(ArgsTrait, OpTrait, TypeTrait, AttrTrait):
 
     self.yield_229 = self.Op("cf.yield", 229, input_types=[self.t_dtensor([1], self.t_bool()), self.t_dtensor([1], self.t_f32()), self.t_dtensor([1, -1, 768], self.t_f32())], output_types=[], attrs=dict())
 
-    self.while_217 = self.Op("pd_op.while", 217, input_types=[self.t_dtensor([1], self.t_bool()), self.t_dtensor([1], self.t_f32()), self.t_dtensor([1, -1, 768], self.t_f32())], output_types=[self.t_dtensor([1], self.t_f32()), self.t_dtensor([1, -1, 768], self.t_f32())], attrs=dict(stop_gradient=self.a_array(self.a_bool(True), self.a_bool(False))), block_positional_arg_names=[[["arg_1150044416", "arg_1150044272"]]], block_keyword_arg_names=[[{}]])
+    self.while_217 = self.Op("pd_op.while", 217, input_types=[self.t_dtensor([1], self.t_bool()), self.t_dtensor([1], self.t_f32()), self.t_dtensor([1, -1, 768], self.t_f32())], output_types=[self.t_dtensor([1], self.t_f32()), self.t_dtensor([1, -1, 768], self.t_f32())], attrs=dict(stop_gradient=self.a_array(self.a_bool(True), self.a_bool(False))), block_positional_arg_names=[[["arg_1225560416", "arg_1225560272"]]], block_keyword_arg_names=[[{}]])
 
     self.exp_230 = self.Op("pd_op.exp", 230, input_types=[self.t_dtensor([1, -1, 768], self.t_f32())], output_types=[self.t_dtensor([1, -1, 768], self.t_f32())], attrs=dict(stop_gradient=self.a_array(self.a_bool(False))))
 
@@ -60,9 +54,9 @@ class Program(ArgsTrait, OpTrait, TypeTrait, AttrTrait):
 
     self.group_238 = self.Op("cinn_op.group", 238, input_types=[], output_types=[self.t_dtensor([1, -1, 768], self.t_f32())], attrs=dict(), block_positional_arg_names=[[[]]], block_keyword_arg_names=[[{}]])
 
-    self.shadow_output_231 = self.Op("builtin.shadow_output", 231, input_types=[self.t_dtensor([1, -1, 768], self.t_f32())], output_types=[], attrs=dict(output_name=self.a_str("output_0")))
+    self.shadow_output_231 = self.Op("builtin.shadow_output", 231, input_types=[self.t_dtensor([1, -1, 768], self.t_f32())], output_types=[], attrs=dict(output_name=self.a_str("output_1")))
 
-    self.module_199 = self.Op("builtin.module", 199, input_types=[], output_types=[], attrs=dict(program=self.a_pointer("0x44814830")), block_positional_arg_names=[[[]]], block_keyword_arg_names=[[{}]])
+    self.module_199 = self.Op("builtin.module", 199, input_types=[], output_types=[], attrs=dict(program=self.a_pointer("0x48b86270")), block_positional_arg_names=[[[]]], block_keyword_arg_names=[[{}]])
 
     
 
@@ -88,16 +82,17 @@ class Program(ArgsTrait, OpTrait, TypeTrait, AttrTrait):
 
     
 
-  def group_240_block00(self, call, arg_1150044272, arg_1150044416):
+  def group_240_block00(self, call, arg_1225560272, arg_1225560416):
 
     def ret_lambda():
-      exp_2180, = call(self.exp_218, arg_1150044272)
 
-      subtract_2190, = call(self.subtract_219, exp_2180, arg_1150044272)
+      exp_2180, = call(self.exp_218, arg_1225560272)
+
+      subtract_2190, = call(self.subtract_219, exp_2180, arg_1225560272)
 
       reduce_sum_2350, = call(self.reduce_sum_235, subtract_2190)
 
-      scale_2340, = call(self.scale_234, arg_1150044416)
+      scale_2340, = call(self.scale_234, arg_1225560416)
 
       full_2240, = call(self.full_224)
 
@@ -117,9 +112,9 @@ class Program(ArgsTrait, OpTrait, TypeTrait, AttrTrait):
 
   def while_217_block00(self, call):
 
-    def ret_lambda(arg_1150044416, arg_1150044272):
+    def ret_lambda(arg_1225560416, arg_1225560272):
 
-      group_2400, group_2401, group_2402, = call(self.group_240, blocks=[[(self.group_240_block00, arg_1150044272, arg_1150044416)]])
+      group_2400, group_2401, group_2402, = call(self.group_240, blocks=[[(self.group_240_block00, arg_1225560272, arg_1225560416)]])
 
       return call(self.yield_229, group_2402, group_2401, group_2400)
 
@@ -157,7 +152,7 @@ class Program(ArgsTrait, OpTrait, TypeTrait, AttrTrait):
 
     return ret_lambda
 
-
+    
 
   def __call__(self, call, *args, **kwargs):
 
@@ -167,12 +162,4 @@ class Program(ArgsTrait, OpTrait, TypeTrait, AttrTrait):
 
     return call(self.module_199, blocks=[[(self.module_199_block00,)]])
 
-if __name__ == "__main__":
-  ir_program = Program()
-  generator = GroupOpUnittestGenerator()
-  op_name2unittest = generator.Generate(ir_program)
-  for name, unittest in op_name2unittest.items():
-    print("#", "="*80)
-    print("#", name)
-    print("#", "-"*80)
-    print(unittest)
+
