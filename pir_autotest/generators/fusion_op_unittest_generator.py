@@ -18,7 +18,7 @@ class FusionOpUnittestGenerator(CinnUnittestGenerator):
 
   def cinn_op_fusion(self, op, blocks):
     block_func, *free_vars = blocks[0][0]
-    unittest_class_name = "TestFusion"
+    unittest_class_name = "FusionOp"
     unittest_generator = PaddleUnittestGenerator(
       unittest_class_name=unittest_class_name,
       func=lambda *args: block_func(*args)()

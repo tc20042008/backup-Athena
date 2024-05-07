@@ -84,3 +84,8 @@ class Complex64Type:
 class Complex128Type:
   def GetShortStr(self):
     return "c128"
+
+@dataclass
+class UnclassifiedType:
+  args: list
+  kwargs: dict

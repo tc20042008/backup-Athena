@@ -3,11 +3,33 @@ import pir_autotest.ir.ir_tensor as ir_tensor
 import pir_autotest.ir_converters.paddle_type_converter as paddle_type_converter
 
 def ConvertToPaddleTensor(tensor):
-  return ir_tensor.Tensor(
-    local_name_prefix=tensor.local_name_prefix,
-    name=tensor.name,
-    type=ir_type.DenseTensorType(
-      tensor.shape,
-      paddle_type_converter.ConvertTypeToString(tensor.dtype)
+  return getattr(PaddleTensorConverter, type(tensor.type).__name__)(tensor)
+
+class PaddleTensorConverter:
+
+  @classmethod
+  def DenseTensorType(cls, tensor):
+    return ir_tensor.Tensor(
+      local_name_prefix=tensor.local_name_prefix,
+      name=tensor.name,
+      type=ir_type.DenseTensorType(
+        tensor.shape,
+        paddle_type_converter.ConvertTypeToString(tensor.dtype)
+      )
     )
-  )
+
+  @classmethod
+  def VectorType(cls, tensor):
+    return ir_tensor.Tensor(
+      local_name_prefix=tensor.local_name_prefix,
+      name=tensor.name,
+      type=ir_type.VectorType(
+        value=[
+          ir_type.DenseTensorType(
+            t.shape,
+            paddle_type_converter.ConvertTypeToString(t.dtype)
+          )
+          for t in tensor.type.value
+        ]
+      )
+    )

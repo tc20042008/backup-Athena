@@ -46,3 +46,6 @@ class TypeTrait:
 
   def t_c128(self):
     return ir_type.Complex128Type()
+
+  def UnclassifiedType(self, *args, **kwargs):
+    return ir_type.UnclassifiedType(args, kwargs)

@@ -50,7 +50,7 @@ class AttrTrait:
   def a_dtype(self, dtype_name):
     return ir_attr.DataTypeAttribute(dtype_name)
 
-  def a_place(self, type, devcie):
+  def a_place(self, type, devcie = None):
     return ir_attr.PlaceAttribute(type, devcie)
 
   def a_layout(self, name):

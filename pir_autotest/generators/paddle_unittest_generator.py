@@ -34,7 +34,13 @@ class InitMinGetter:
     return "-0.5" 
 
   def float64():
-    return "-0.5" 
+    return "-0.5"
+
+  def int32():
+    return "0"
+
+  def int64():
+    return "0"
 
 
 class InitMaxGetter:
@@ -52,12 +58,22 @@ class InitMaxGetter:
 
   def float64():
     return "0.5" 
+    
+  def int32():
+    return "1"
+
+  def int64():
+    return "1"
+
 
 type2bigger_type = dict(
   bool="bool",
   bfloat16="float64",
   float16="float64",
   float32="float64",
+  int16="int64",
+  int32="int64",
+  int64="int64",
 )
 
 
@@ -102,7 +118,6 @@ os.environ['FLAGS_cinn_new_group_scheduler'] = '1'
 os.environ['FLAGS_group_schedule_tiling_first'] = '1'
 os.environ['FLAGS_prim_all'] = 'true'
 os.environ['FLAGS_prim_enable_dynamic'] = '1'
-os.environ['FLAGS_print_ir'] = '1'
 os.environ['FLAGS_enable_pir_api'] = '1'
 os.environ['FLAGS_cinn_bucket_compile'] = '1'
 
@@ -164,8 +179,8 @@ class Test{unittest_class_name}(unittest.TestCase):
         return out
 
     def test_train(self):
-        cinn_outs = self.train(use_cinn=True)
         dy_outs = self.train(use_cinn=False)
+        cinn_outs = self.train(use_cinn=True)
 
         for cinn_out, dy_out in zip(cinn_outs, dy_outs):
           np.testing.assert_allclose(cinn_out.numpy(), dy_out.numpy(), atol=1e-6)
