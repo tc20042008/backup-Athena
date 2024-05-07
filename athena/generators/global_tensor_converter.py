@@ -1,4 +1,4 @@
-from pir_autotest.ir.ir_tensor import Tensor
+from athena.ir.ir_tensor import Tensor
 
 class GlobalTensorConverter:
 

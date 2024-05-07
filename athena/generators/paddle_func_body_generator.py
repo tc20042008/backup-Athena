@@ -1,6 +1,6 @@
-from pir_autotest.ir_converters.paddle_op_converter import ConvertToPaddleOp
-from pir_autotest.generators.paddle_op_call_generator import PaddleOpCallGenerator
-from pir_autotest.generators.global_tensor_converter import GlobalTensorConverter
+from athena.ir_converters.paddle_op_converter import ConvertToPaddleOp
+from athena.generators.paddle_op_call_generator import PaddleOpCallGenerator
+from athena.generators.global_tensor_converter import GlobalTensorConverter
 
 class PaddleFuncBodyGenerator:
   def __init__(self, func):

@@ -1,7 +1,7 @@
-from pir_autotest.generators.fusion_op_unittest_generator import (
+from athena.generators.fusion_op_unittest_generator import (
   FusionOpUnittestGenerator
 )
-from pir_autotest.apps import load_pir_py_classes
+from athena.apps import load_pir_py_classes
 import sys
 from absl import app
 from absl import flags

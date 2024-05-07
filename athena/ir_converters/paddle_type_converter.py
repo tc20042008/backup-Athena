@@ -1,4 +1,4 @@
-import pir_autotest.ir.ir_type
+import athena.ir.ir_type
 
 def ConvertTypeToString(t):
   return getattr(TypeToStringConverter, type(t).__name__)(t)

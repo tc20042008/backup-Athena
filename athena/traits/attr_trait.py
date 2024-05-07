@@ -1,4 +1,4 @@
-import pir_autotest.ir.ir_attr as ir_attr
+import athena.ir.ir_attr as ir_attr
 
 class AttrTrait:
 

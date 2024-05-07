@@ -1,5 +1,5 @@
-import pir_autotest.ir.paddle_op as paddle_op
-from pir_autotest.ir_converters.paddle_attr_converter import ConvertAttributeToString
+import athena.ir.paddle_op as paddle_op
+from athena.ir_converters.paddle_attr_converter import ConvertAttributeToString
 
 def ConvertToPaddleOp(op):
   return paddle_op.Op(

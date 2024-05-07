@@ -1,4 +1,4 @@
-import pir_autotest.ir.ir_type as ir_type
+import athena.ir.ir_type as ir_type
 
 class TypeTrait:
 

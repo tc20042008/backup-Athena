@@ -1,5 +1,5 @@
-from pir_autotest.ir.ir_tensor import Tensor
-from pir_autotest.ir_converters.paddle_op_converter import ConvertToPaddleOp
+from athena.ir.ir_tensor import Tensor
+from athena.ir_converters.paddle_op_converter import ConvertToPaddleOp
 
 class CinnUnittestGenerator:
 

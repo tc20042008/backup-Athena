@@ -1,4 +1,4 @@
-import pir_autotest.ir.ir_attr
+import athena.ir.ir_attr
 
 def ConvertAttributeToString(attr):
   return getattr(AttributeToStringConverter, type(attr).__name__)(attr)

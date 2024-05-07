@@ -1,7 +1,7 @@
-from pir_autotest.traits.args_trait import ArgsTrait
-from pir_autotest.traits.type_trait import TypeTrait
-from pir_autotest.traits.attr_trait import AttrTrait
-from pir_autotest.traits.op_trait import OpTrait
+from athena.traits.args_trait import ArgsTrait
+from athena.traits.type_trait import TypeTrait
+from athena.traits.attr_trait import AttrTrait
+from athena.traits.op_trait import OpTrait
 import importlib
 import inspect
 

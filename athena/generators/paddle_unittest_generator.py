@@ -1,4 +1,4 @@
-from pir_autotest.generators.paddle_func_body_generator import (
+from athena.generators.paddle_func_body_generator import (
   PaddleFuncBodyGenerator
 )
 

@@ -1,6 +1,6 @@
-import pir_autotest.ir.ir_type as ir_type
-import pir_autotest.ir.ir_tensor as ir_tensor
-import pir_autotest.ir_converters.paddle_type_converter as paddle_type_converter
+import athena.ir.ir_type as ir_type
+import athena.ir.ir_tensor as ir_tensor
+import athena.ir_converters.paddle_type_converter as paddle_type_converter
 
 def ConvertToPaddleTensor(tensor):
   return getattr(PaddleTensorConverter, type(tensor.type).__name__)(tensor)

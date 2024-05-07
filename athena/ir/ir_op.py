@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-import pir_autotest.ir.ir_tensor as ir_tensor
+import athena.ir.ir_tensor as ir_tensor
 
 @dataclass
 class Op:

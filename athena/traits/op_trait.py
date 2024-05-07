@@ -1,4 +1,4 @@
-import pir_autotest.ir.ir_op as ir_op
+import athena.ir.ir_op as ir_op
 
 
 class OpTrait:

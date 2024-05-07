@@ -1,6 +1,6 @@
 from contextlib import contextmanager
-from pir_autotest.generators.cinn_unittest_generator import CinnUnittestGenerator
-from pir_autotest.generators.paddle_unittest_generator import PaddleUnittestGenerator
+from athena.generators.cinn_unittest_generator import CinnUnittestGenerator
+from athena.generators.paddle_unittest_generator import PaddleUnittestGenerator
 
 class FusionOpUnittestGenerator(CinnUnittestGenerator):
 
